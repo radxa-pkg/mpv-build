@@ -15,6 +15,7 @@ test:
 #
 .PHONY: distclean
 distclean: clean
+	rm -rf ffmpeg libass libplacebo mpv
 
 .PHONY: clean
 clean: clean-doc clean-deb
@@ -33,15 +34,27 @@ clean-deb:
 #
 .PHONY: dch
 dch: debian/changelog
-	EDITOR=true gbp dch --debian-branch=main --multimaint-merge --commit --release --dch-opt=--upstream
+	EDITOR=true gbp dch --debian-branch=master --multimaint-merge --commit --release --dch-opt=--upstream
+
+.PHONY: lib
+lib: ffmpeg libass libplacebo mpv
+
+ffmpeg:
+	$(MAKE) download
+libass:
+	$(MAKE) download
+libplacebo:
+	$(MAKE) download
+mpv:
+	$(MAKE) download
 
 .PHONY: download
 download:
 	./update
 
 .PHONY: deb
-deb: debian download
-	debuild --no-lintian --no-sign -b -aarm64 -Pcross
+deb: debian lib
+	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags bad-distribution-in-changes-file -- %p_%s_*.changes" --no-sign -b -aarm64 -Pcross
 
 .PHONY: release
 release:

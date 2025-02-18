@@ -23,7 +23,7 @@ jobs:
           export DEBFULLNAME='"Radxa Computer Co., Ltd"'
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          make dch
+          make download
       - name: Test
         run: |
           make test
