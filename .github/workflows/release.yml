@@ -39,7 +39,7 @@ jobs:
   release:
     runs-on: ubuntu-24.04-arm
     needs: build
-    if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'master' }}
+    if: ${{ github.event_name != 'pull_request' && github.ref_name == 'master' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,9 +51,6 @@ jobs:
           name: ${{ github.event.repository.name }}
       - name: Check if the latest version is releasable
         run: |
-          export DEBEMAIL="dev@radxa.com"
-          export DEBFULLNAME='"Radxa Computer Co., Ltd"'
-          make lib
           version="$(dpkg-parsechangelog -S Version)"
           echo "version=$version" >> $GITHUB_ENV
           echo "changes<<EOF" >> $GITHUB_ENV
