@@ -6,7 +6,6 @@
 /build_libs
 /ffmpeg_build
 *.deb
-/debian/changelog
 /debian/files
 /debian/mpv.debhelper.log
 /debian/mpv.postinst.debhelper
