@@ -33,8 +33,8 @@ clean-deb:
 # Release
 #
 .PHONY: dch
-dch: debian/changelog
-	EDITOR=true gbp dch --debian-branch=master --multimaint-merge --commit --release --dch-opt=--upstream
+dch: debian/changelog lib
+	# EDITOR=true gbp dch --debian-branch=master --multimaint-merge --commit --release --dch-opt=--upstream
 
 .PHONY: lib
 lib: ffmpeg libass libplacebo mpv
@@ -54,7 +54,7 @@ download:
 
 .PHONY: deb
 deb: debian lib
-	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags bad-distribution-in-changes-file -- %p_%s_*.changes" --no-sign -b -aarm64 -Pcross
+	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags bad-distribution-in-changes-file -- %p_%s_*.changes" --no-sign -b
 
 .PHONY: release
 release:
