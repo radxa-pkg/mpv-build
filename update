@@ -21,7 +21,7 @@ do_clone_all()
     #do_clone "fribidi"    "http://anongit.freedesktop.org/git/fribidi/fribidi.git"
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
-    do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
+    do_clone "mpv"        "https://github.com/hbiyik/mpv.git"
 }
 
 do_gitmaster()
@@ -89,7 +89,7 @@ checkout_ffmpeg=master
 #checkout_fribidi=release
 checkout_libass=master
 checkout_libplacebo=master
-checkout_mpv=master
+checkout_mpv=@mpp
 
 
 checkout_all()
