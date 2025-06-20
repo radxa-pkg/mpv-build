@@ -1,0 +1,12 @@
+# Updated gpu driver with more features such as NV15 drm prime rendering support.
+Package: *mesa*
+Pin: version >=25.0.0
+Pin-Priority: 1001
+
+Package: *drm*
+Pin: version >=25.0.0
+Pin-Priority: 1001
+
+Package: *gbm*
+Pin: version >=25.0.0
+Pin-Priority: 1001

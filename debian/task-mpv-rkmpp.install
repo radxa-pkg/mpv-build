@@ -1,0 +1,4 @@
+#!/usr/bin/env dh-exec
+
+apt/mpv-rkmpp => /etc/apt/preferences.d/mpv-rkmpp
+debian/mpv.conf => /etc/mpv/mpv.conf

@@ -1,0 +1,3 @@
+# We have to adjust repo priority to properly install updated mesa packages
+task-mpv-rkmpp: package-installs-apt-preferences
+task-mpv-rkmpp: copyright-without-copyright-notice

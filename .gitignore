@@ -14,5 +14,11 @@
 /debian/mpv.postinst.debhelper
 /debian/mpv.postrm.debhelper
 /debian/mpv.substvars
+/debian/task-mpv-rkmpp
+/debian/task-mpv-rkmpp.debhelper.log
+/debian/task-mpv-rkmpp.postinst.debhelper
+/debian/task-mpv-rkmpp.postrm.debhelper
+/debian/task-mpv-rkmpp.substvars
+/debian/tmp/
 /config/
 /*_options
